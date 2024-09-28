@@ -79,6 +79,11 @@ class BookController {
         echo $id_peminjaman;
     }
 
+    // Method mengecek status buku
+    public function status($id_peminjaman) {
+        echo $id_peminjaman;
+    }
+
     // Method untuk mengecek apakah field terisi
     private function isFilled($fields) {
         foreach ($fields as $field) {
