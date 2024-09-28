@@ -2,6 +2,7 @@
 
 require_once 'controllers/HomeController.php';
 require_once 'controllers/BookController.php';
+require_once 'controllers/AdminController.php';
 
 // Membersihkan url
 $url = ltrim($_SERVER['REQUEST_URI'], '/');
@@ -35,6 +36,10 @@ switch($controller) {
     case 'book':
         $book = new BookController();
         call_user_func_array([$book, $method], $params);
+        break;
+    case 'admin':
+        $admin = new AdminController();
+        call_user_func_array([$admin, $method], $params);
         break;
     default:
         echo '404';
