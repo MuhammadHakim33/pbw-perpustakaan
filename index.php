@@ -3,6 +3,7 @@
 require_once 'controllers/HomeController.php';
 require_once 'controllers/BookController.php';
 require_once 'controllers/AdminController.php';
+require_once 'controllers/AuthController.php';
 
 // Membersihkan url
 $url = ltrim($_SERVER['REQUEST_URI'], '/');
@@ -40,6 +41,10 @@ switch($controller) {
     case 'admin':
         $admin = new AdminController();
         call_user_func_array([$admin, $method], $params);
+        break;
+    case 'auth':
+        $auth = new AuthController();
+        call_user_func_array([$auth, $method], $params);
         break;
     default:
         echo '404';
