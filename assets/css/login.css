@@ -1,0 +1,71 @@
+body {
+    background-color: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+}
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+.login-container h3 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+.form-control {
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+.btn-primary {
+    border-radius: 30px;
+    background-color: #4e73df;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+}
+.btn-primary:hover {
+    background-color: #375acd;
+}
+.form-label {
+    font-weight: 500;
+    color: #555;
+}
+.form-select {
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+.text-center a {
+    color: #4e73df;
+    text-decoration: none;
+    font-weight: 500;
+}
+.text-center a:hover {
+    color: #375acd;
+}
+.or-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 0;
+}
+.or-separator::before,
+.or-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+.or-separator:not(:empty)::before {
+    margin-right: 10px;
+}
+.or-separator:not(:empty)::after {
+    margin-left: 10px;
+}
+.or-separator span {
+    color: #888;
+    font-weight: 500;
+}
