@@ -1,6 +1,8 @@
 <?php
 
-class BookController {
+require_once 'Middleware.php';
+
+class BookController extends Middleware {
 
     public function index() {
         echo 'Book';
@@ -8,6 +10,8 @@ class BookController {
 
     // Method untuk menambahkan buku
     public function store() {
+        $this->authorize('admin');
+
         // Mengecek apakah field terisi
         if (!$this->isFilled(['judul', 'penulis'])) {
             echo "ISI SEMUA FIELD!";
@@ -28,6 +32,8 @@ class BookController {
 
     // Method untuk mengubah buku
     public function update() {
+        $this->authorize('admin');
+
         // Menangkap semua input lalu sanitasi
         $id = htmlspecialchars($_POST['id']);
         $judul = htmlspecialchars($_POST['judul']);
@@ -44,11 +50,15 @@ class BookController {
 
     // Method untuk menghapus buku
     public function delete($id) {
+        $this->authorize('admin');
+
         var_dump($id);
     }
 
     // Method untuk meminjam buku
     public function borrow() {
+        $this->authorize('user');
+
         // Mengecek apakah field terisi
         if (!$this->isFilled(['id_buku', 'nomor_anggota', 'tgl_pinjam', 'tgl_kembali'])) {
             echo "ISI SEMUA FIELD!";
@@ -76,11 +86,15 @@ class BookController {
 
     // Method mengembalikan buku
     public function return($id_peminjaman) {
+        $this->authorize('user');
+
         echo $id_peminjaman;
     }
 
     // Method mengecek status buku
     public function status($id_peminjaman) {
+        $this->authorize('user');
+
         echo $id_peminjaman;
     }
 

@@ -50,31 +50,3 @@ switch($controller) {
         echo '404';
         break;
 }
-
-
-
-// if(!method_exists($book, $url[1])) {
-//     call_user_func_array([$book, 'index'], $params);
-//     break;
-// }
-// var_dump($url);
-// var_dump($controller);
-// var_dump($method);
-// die;
-
-// var_dump($params);
-
-// echo $controller;
-// echo '<br>';
-// echo $method;
-// echo '<br>';
-// var_dump($params);
-
-
-// case 'home/book':
-//     $home->book();
-//     break;
-// case 'home/return':
-//     $id_peminjaman = $url[2];
-//     $home->bringback($id_peminjaman);
-//     break;
