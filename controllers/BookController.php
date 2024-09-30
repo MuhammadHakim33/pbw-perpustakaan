@@ -7,7 +7,8 @@ class BookController extends Middleware {
     public function detail($id) {
         $this->authorize('user');
         
-        $isbn = $id;
+        $id = $id;
+
         include 'views/book.php';
     }
 

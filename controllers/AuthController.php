@@ -1,19 +1,23 @@
 <?php
 
+require_once 'models/Pengguna.php';
+
 class AuthController {
+    private $model;
 
     public $account_dummy = array(
         'bool' => true,
         'nik' => '12345',
         'email' => 'admin@gmail.com',
         'password' => '$2y$10$DTIiT86URHuL3G8DeSlpX.cjEnYVYz1XBpgtjYi3MB1Z45FvH0ZpW', // admin123
-        'role' => 'user'
+        'role' => 'admin'
     );
 
     // public $account_dummy = false;
 
     public function __construct(){
         session_start();
+        $this->model = new Pengguna();
     }
 
     public function index() {
@@ -43,7 +47,7 @@ class AuthController {
         }
 
         // Menghubungkan ke model untuk menemukan akun di db
-        $account = $this->account_dummy;
+        $account = $this->model->login($email, $password);
 
         // Mengecek apakah akun ada
         if (!$account) {
@@ -59,7 +63,7 @@ class AuthController {
 
         // Set session
         $_SESSION['logged'] = true;
-        $_SESSION['nik'] = $account['nik'];
+        $_SESSION['id'] = $account['id'];
         $_SESSION['email'] = $account['email'];
         $_SESSION['role'] = $account['role'];
 
