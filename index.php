@@ -13,6 +13,11 @@ $url = explode('/', $url);
 $controller = 'home';
 $method = 'index';
 $params = [];
+$query = [];
+
+if(isset($_SERVER['QUERY_STRING'])) {
+    $query = explode('=', $_SERVER['QUERY_STRING']);
+}
 
 
 if(!empty($url[0])) {

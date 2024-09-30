@@ -15,8 +15,6 @@ class AdminController extends Middleware {
      * untuk menampilkan total peminjaman
      * */ 
     public function index() {
-        echo 'Admin';
-        echo '<br>';
-        echo $_SESSION['role'];
+        include 'views/admin.php';
     }
 }
