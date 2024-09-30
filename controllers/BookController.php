@@ -5,6 +5,8 @@ require_once 'Middleware.php';
 class BookController extends Middleware {
 
     public function detail($id) {
+        $this->authorize('user');
+        
         $isbn = $id;
         include 'views/book.php';
     }
@@ -97,6 +99,15 @@ class BookController extends Middleware {
         $this->authorize('user');
 
         echo $id_peminjaman;
+    }
+
+    // Method untuk melihat history peminjaman buku user
+    public function history() {
+        $this->authorize('user');
+
+        $nik = $_SESSION['nik'];
+
+        include 'views/riwayat.php';
     }
 
     // Method untuk mengecek apakah field terisi

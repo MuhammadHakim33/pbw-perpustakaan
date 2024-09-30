@@ -12,7 +12,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">PERPUSKIM</a>
+            <a class="navbar-brand" href="/">PERPUSKIM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,9 +23,9 @@
                             Menu
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="index.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/">Dashboard</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-center" href="login.html">Log Out</a></li>
+                            <li><a class="dropdown-item text-center" href="/auth/logout">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -36,7 +36,7 @@
     <!-- Riwayat Peminjaman Buku -->
     <section id="riwayat-peminjaman" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Riwayat Peminjaman Buku</h2>
+            <h2 class="text-center mb-4">Riwayat Peminjaman Buku <?= $nik; ?></h2>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="table-dark">
