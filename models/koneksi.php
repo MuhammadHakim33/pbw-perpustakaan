@@ -1,14 +1,21 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = ""; 
-$dbname = "db_perpusteknik";
 
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
+class Koneksi {
 
-// Mengecek koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+    protected $conn;
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "root"; 
+    private $dbname = "db_perpusteknik";
+
+    // Constructor untuk inisialisasi koneksi database
+    public function __construct() {
+        try {
+            $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
+        } 
+        catch(PDOException $e) {
+            // Cek koneksi
+            die("Koneksi gagal: " . $e->getMessage());
+        }
+    }
 }
-?>
