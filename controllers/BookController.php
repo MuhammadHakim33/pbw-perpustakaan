@@ -2,19 +2,21 @@
 
 require_once 'Middleware.php';
 require_once 'models/Buku.php';
+require_once 'models/Peminjaman.php';
 
 class BookController extends Middleware {
-    private $model;
+    private $model = array();
 
     public function __construct(){
         parent::__construct();
-        $this->model = new Buku();
+        $this->model['buku'] = new Buku();
+        $this->model['peminjaman'] = new Peminjaman();
     }
 
     public function detail($id) {
         $this->authorize('user');
         
-        $buku = $this->model->temukanBuku($id);
+        $buku = $this->model['buku']->temukanBuku($id);
         var_dump($buku);
         die;
 
@@ -98,25 +100,32 @@ class BookController extends Middleware {
     }
 
     // Method mengembalikan buku
-    public function return($id_peminjaman) {
+    public function return($id) {
         $this->authorize('user');
 
-        echo $id_peminjaman;
+        $this->model['peminjaman']->pengembalianBuku($id);
+
+        echo $id;
     }
 
     // Method mengecek status buku
-    public function status($id_peminjaman) {
+    public function status($id) {
         $this->authorize('user');
 
-        echo $id_peminjaman;
+        $peminjaman = $this->model['peminjaman']->getPeminjamanUser($id);
+        var_dump($peminjaman);
+        die;
+
+        // echo $id_peminjaman;
     }
 
     // Method untuk melihat history peminjaman buku user
     public function history() {
         $this->authorize('user');
 
-        $buku = $this->model->ambilBuku();
-        var_dump($buku);
+        $id = $_SESSION['id'];
+        $peminjaman = $this->model['peminjaman']->getAllPeminjamanUser($id);
+        var_dump($peminjaman);
         die;
 
         include 'views/riwayat.php';
