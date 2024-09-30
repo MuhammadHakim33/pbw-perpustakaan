@@ -1,13 +1,22 @@
 <?php
 
 require_once 'Middleware.php';
+require_once 'models/Buku.php';
 
 class BookController extends Middleware {
+    private $model;
+
+    public function __construct(){
+        parent::__construct();
+        $this->model = new Buku();
+    }
 
     public function detail($id) {
         $this->authorize('user');
         
-        $id = $id;
+        $buku = $this->model->temukanBuku($id);
+        var_dump($buku);
+        die;
 
         include 'views/book.php';
     }
@@ -106,7 +115,9 @@ class BookController extends Middleware {
     public function history() {
         $this->authorize('user');
 
-        $nik = $_SESSION['nik'];
+        $buku = $this->model->ambilBuku();
+        var_dump($buku);
+        die;
 
         include 'views/riwayat.php';
     }

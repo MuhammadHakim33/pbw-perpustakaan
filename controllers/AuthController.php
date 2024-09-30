@@ -5,16 +5,6 @@ require_once 'models/Pengguna.php';
 class AuthController {
     private $model;
 
-    public $account_dummy = array(
-        'bool' => true,
-        'nik' => '12345',
-        'email' => 'admin@gmail.com',
-        'password' => '$2y$10$DTIiT86URHuL3G8DeSlpX.cjEnYVYz1XBpgtjYi3MB1Z45FvH0ZpW', // admin123
-        'role' => 'admin'
-    );
-
-    // public $account_dummy = false;
-
     public function __construct(){
         session_start();
         $this->model = new Pengguna();
