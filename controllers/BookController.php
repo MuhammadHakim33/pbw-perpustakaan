@@ -63,22 +63,20 @@ class BookController extends Middleware {
         $this->authorize('user');
 
         // Mengecek apakah field terisi
-        if (!$this->isFilled(['id_buku', 'nomor_anggota', 'tgl_pinjam', 'tgl_kembali'])) {
+        if (!$this->isFilled(['id_buku', 'id_pengguna', 'tgl_pinjam', 'tgl_kembali'])) {
             echo "ISI SEMUA FIELD!";
             die;
         }
 
         // Menangkap semua input lalu sanitasi
         $id_buku = htmlspecialchars($_POST['id_buku']);
-        $nomor_anggota = htmlspecialchars($_POST['nomor_anggota']);
+        $id_pengguna = htmlspecialchars($_POST['id_pengguna']);
         $tgl_pinjam = htmlspecialchars($_POST['tgl_pinjam']);
         $tgl_kembali = htmlspecialchars($_POST['tgl_kembali']);
-        $kode_pinjam = 'PJM'.time().rand(100,999);
 
         $data = array(
-            'kode_pinjam' => $kode_pinjam,
             'id_buku' => $id_buku,
-            'nomor_anggota' => $nomor_anggota,
+            'id_pengguna' => $id_pengguna,
             'tgl_pinjam' => $tgl_pinjam,
             'tgl_kembali' => $tgl_kembali,
         );
@@ -119,4 +117,5 @@ class BookController extends Middleware {
         }
         return true;
     }
+
 }

@@ -17,4 +17,9 @@ class AdminController extends Middleware {
     public function index() {
         include 'views/admin.php';
     }
+
+    public function listbook(){ 
+
+        include 'views/adminbook.php';
+    }
 }
