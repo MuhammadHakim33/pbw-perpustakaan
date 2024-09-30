@@ -10,8 +10,6 @@ class HomeController extends Middleware {
     }
 
     public function index() {
-        echo 'Home';
-        echo '<br>';
-        echo $_SESSION['role'];
+        include 'views/index.php';
     }
 }

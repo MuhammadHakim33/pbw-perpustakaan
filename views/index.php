@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">PERPUSKIM</a>
+            <a class="navbar-brand" href="#">PERPUSCOY</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,7 +24,7 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="riwayat.html">Riwayat Peminjaman</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-center" href="login.html">Log Out</a></li>
+                            <li><a class="dropdown-item text-center" href="/auth/logout">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -43,7 +43,7 @@
                         <img src="../assets/image/pergi.jpeg" class="card-img-top" alt="Buku 1">
                         <div class="card-body">
                             <h5 class="card-title">Pergi</h5>
-                            <button onclick="window.location.href='book.html';" class="btn btn-primary">Lihat Buku</button>
+                            <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         <img src="../assets/image/pulang.jpg" class="card-img-top" alt="Buku 2">
                         <div class="card-body">
                             <h5 class="card-title">Pulang</h5>
-                            <button onclick="window.location.href='book.html';" class="btn btn-primary">Lihat Buku</button>
+                            <button onclick="window.location.href='/book/detail/222';" class="btn btn-primary">Lihat Buku</button>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <img src="../assets/image/rindu.jpg" class="card-img-top" alt="Buku 3">
                         <div class="card-body">
                             <h5 class="card-title">Rindu</h5>
-                            <button onclick="window.location.href='book.html';" class="btn btn-primary">Lihat Buku</button>
+                            <button onclick="window.location.href='/book/detail/333';" class="btn btn-primary">Lihat Buku</button>
                         </div>
                     </div>
                 </div>
@@ -79,14 +79,14 @@
             <div class="row">
                 
                 <div class="col-md-4">
-                    <h5 class="text-uppercase">Tentang Perpuskim</h5>
-                    <p>Perpuskim adalah perpustakaan digital modern yang menyediakan berbagai buku dari berbagai genre. Kami berkomitmen untuk mendukung literasi di era digital ini.</p>
+                    <h5 class="text-uppercase">Tentang Perpuscoy</h5>
+                    <p>Perpuscoy adalah perpustakaan digital modern yang menyediakan berbagai buku dari berbagai genre. Kami berkomitmen untuk mendukung literasi di era digital ini.</p>
                 </div>
                 
                 <div class="col-md-4">
                     <h5 class="text-uppercase">Kontak Kami</h5>
                     <ul class="list-unstyled">
-                        <li>Email: info@perpuskim.com</li>
+                        <li>Email: info@perpuscoy.com</li>
                         <li>Telepon: +62 21 12345678</li>
                         <li>Alamat: Jl. Cerdas No. 7, Jakarta</li>
                     </ul>
@@ -115,7 +115,7 @@
             </div>
             <hr class="bg-white">
             <div class="text-center">
-                <p>&copy; 2024 PERPUSKIM. All Rights Reserved.</p>
+                <p>&copy; 2024 PERPUSCOY. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

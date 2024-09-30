@@ -2,15 +2,15 @@
 
 class AuthController {
 
-    public $admin_dump = array(
+    public $account_dummy = array(
         'bool' => true,
         'nik' => '12345',
         'email' => 'admin@gmail.com',
-        'password' => '$2y$10$DTIiT86URHuL3G8DeSlpX.cjEnYVYz1XBpgtjYi3MB1Z45FvH0ZpW',
-        'role' => 'admin'
+        'password' => '$2y$10$DTIiT86URHuL3G8DeSlpX.cjEnYVYz1XBpgtjYi3MB1Z45FvH0ZpW', // admin123
+        'role' => 'user'
     );
 
-    // public $admin_dump = false;
+    // public $account_dummy = false;
 
     public function __construct(){
         session_start();
@@ -19,7 +19,7 @@ class AuthController {
     public function index() {
         $this->notLogged();
 
-        echo 'Auth';
+        include 'views/login.php';
     }
 
     // Method untuk login
@@ -43,7 +43,7 @@ class AuthController {
         }
 
         // Menghubungkan ke model untuk menemukan akun di db
-        $account = $this->admin_dump;
+        $account = $this->account_dummy;
 
         // Mengecek apakah akun ada
         if (!$account) {

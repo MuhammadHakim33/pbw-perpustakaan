@@ -4,8 +4,9 @@ require_once 'Middleware.php';
 
 class BookController extends Middleware {
 
-    public function index() {
-        echo 'Book';
+    public function detail($id) {
+        $isbn = $id;
+        include 'views/book.php';
     }
 
     // Method untuk menambahkan buku
