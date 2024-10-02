@@ -42,46 +42,6 @@
 
     <!-- Main Container -->
     <div class="container mt-5 pt-4">
-        <!-- Daftar Buku -->
-        <div class="table-container">
-            <h3>Daftar Buku</h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Judul Buku</th>
-                        <th>Penulis</th>
-                        <th>Penerbit</th>
-                        <th>Tahun Terbit</th>
-                        <th>Jumlah Salinan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Belajar Pemrograman</td>
-                        <td>John Doe</td>
-                        <td>Penerbit ABC</td>
-                        <td>2022</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>Dasar-Dasar Web Development</td>
-                        <td>Jane Smith</td>
-                        <td>Penerbit XYZ</td>
-                        <td>2021</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>Machine Learning untuk Pemula</td>
-                        <td>Ali Ahmad</td>
-                        <td>Penerbit MNO</td>
-                        <td>2020</td>
-                        <td>2</td>
-                    </tr>
-                    <!-- Tambahkan lebih banyak buku sesuai kebutuhan -->
-                </tbody>
-            </table>
-        </div>
-
         <!-- Daftar Anggota -->
         <div class="table-container mt-5">
             <h3>Daftar Anggota</h3>
@@ -90,29 +50,15 @@
                     <tr>
                         <th>Nama Anggota</th>
                         <th>Email</th>
-                        <th>Username</th>
-                        <th>Tanggal Bergabung</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($getPengguna as $pengguna): ?>
                     <tr>
-                        <td>Ahmad Suryadi</td>
-                        <td>ahmad@example.com</td>
-                        <td>ahmadsurya</td>
-                        <td>2023-01-15</td>
+                        <td><?= $pengguna['nama']; ?></td>
+                        <td><?= $pengguna['email']; ?></td>
                     </tr>
-                    <tr>
-                        <td>Rina Sari</td>
-                        <td>rina@example.com</td>
-                        <td>rinasari</td>
-                        <td>2022-12-05</td>
-                    </tr>
-                    <tr>
-                        <td>Budi Santoso</td>
-                        <td>budi@example.com</td>
-                        <td>budisantoso</td>
-                        <td>2023-03-10</td>
-                    </tr>
+                    <?php endforeach; ?>
                     <!-- Tambahkan lebih banyak anggota sesuai kebutuhan -->
                 </tbody>
             </table>

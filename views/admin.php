@@ -60,16 +60,16 @@
                 <!-- Manajemen User Section -->
                 <section id="manajemenUser" class="mb-5">
                     <h3>Manajemen User</h3>
-                    <button class="btn btn-info m-2"><i class="fas fa-user-check"></i> Cek Informasi User</button>
+                    <button class="btn btn-info m-2" onclick="window.location.href='/admin/listuser'"><i class="fas fa-user-check"></i> Cek Informasi User</button>
                 </section>
 
                 <!-- Pelaporan Section -->
                 <section id="pelaporan" class="mb-5">
                     <h3>Pelaporan</h3>
                     <div class="d-flex flex-wrap">
-                        <button class="btn btn-success m-2"><i class="fas fa-file-alt"></i> Laporan Peminjaman</button>
-                        <button class="btn btn-success m-2"><i class="fas fa-file-alt"></i> Laporan Pengembalian</button>
-                        <button class="btn btn-success m-2"><i class="fas fa-file-alt"></i> Log Peminjaman</button>
+                        <button class="btn btn-success m-2" onclick="window.location.href='/admin/listpeminjaman'"><i class="fas fa-file-alt"></i> Laporan Peminjaman</button>
+                        <button class="btn btn-success m-2" onclick="window.location.href='/admin/listpengembalian'" ><i class="fas fa-file-alt"></i> Laporan Pengembalian</button>
+                        <button class="btn btn-success m-2" onclick="window.location.href='/admin/listpeminjamansemua'" ><i class="fas fa-file-alt"></i> Log Peminjaman</button>
                     </div>
                 </section>
             </main>

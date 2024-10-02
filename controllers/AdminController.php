@@ -2,6 +2,8 @@
 
 require_once 'Middleware.php';
 require_once 'models/Buku.php';
+require_once 'models/Pengguna.php';
+require_once 'models/peminjaman.php';
 
 class AdminController extends Middleware {
     private $model = array();
@@ -10,6 +12,8 @@ class AdminController extends Middleware {
         parent::__construct();
         $this->authorize('admin');
         $this->model['buku'] = new Buku();
+        $this->model['pengguna'] = new Pengguna();
+        $this->model['peminjaman'] = new Peminjaman();
     }
 
     /**
@@ -34,5 +38,6 @@ class AdminController extends Middleware {
         // var_dump($getBook);
         // die;
         include 'views/adminbook.php';
+
     }
 }
