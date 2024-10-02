@@ -65,7 +65,7 @@
                             <td>--</td>
                             <td><span class="badge bg-warning">Belum Dikembalikan</span></td>
                             <td>
-                                <form action="" method="POST">
+                                <form action="/book/history" method="POST">
                                     <input type="hidden" name="book_id" value="2">
                                     <button type="submit" class="btn btn-danger">Kembalikan Buku</button>
                                 </form>

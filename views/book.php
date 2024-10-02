@@ -52,22 +52,20 @@
                     <h4>Tahun Terbit: </span></h4>
                     <hr>
                     <h5>Form Peminjaman Buku</h5>
-                    <form>
+                    <form action="/book/borrow" method="post">
                         <div class="mb-3">
-                            <label for="namaPeminjam" class="form-label">Nama Peminjam</label>
-                            <input type="text" class="form-control" id="namaPeminjam" required>
+                            <input type="text" class="form-control" id="namaPeminjam" name="id_pengguna" hidden value="1" required>
                         </div>
                         <div class="mb-3">
-                            <label for="namaPeminjam" class="form-label">ID</label>
-                            <input type="text" class="form-control" id="namaPeminjam" required>
+                            <input type="text" class="form-control" id="id" name="id_buku" hidden value="1" required>
                         </div>
                         <div class="mb-3">
                             <label for="tanggalPinjam" class="form-label">Tanggal Pinjam</label>
-                            <input type="date" class="form-control" id="tanggalPinjam" required>
+                            <input type="date" class="form-control" id="tanggalPinjam" name="tgl_pinjam" required>
                         </div>
                         <div class="mb-3">
                             <label for="tanggalKembali" class="form-label">Tanggal Kembali</label>
-                            <input type="date" class="form-control" id="tanggalKembali" required>
+                            <input type="date" class="form-control" id="tanggalKembali" name="tgl_kembali" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Pinjam Buku</button>
                     </form>
