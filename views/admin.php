@@ -62,7 +62,7 @@
                 <!-- Manajemen User Section -->
                 <section id="manajemenUser" class="mb-5">
                     <h3>Manajemen User</h3>
-                    <button class="btn btn-info m-2"><i class="fas fa-user-check"></i> Cek Informasi User</button>
+                    <button class="btn btn-info m-2" onclick="window.location.href='/admin/listuser'"><i class="fas fa-user-check"></i> Cek Informasi User</button>
                 </section>
 
                 <!-- Pelaporan Section -->

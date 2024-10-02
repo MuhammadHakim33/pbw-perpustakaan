@@ -2,6 +2,7 @@
 
 require_once 'Middleware.php';
 require_once 'models/Buku.php';
+require_once 'models/Pengguna.php';
 
 class AdminController extends Middleware {
     private $model = array();
@@ -10,6 +11,7 @@ class AdminController extends Middleware {
         parent::__construct();
         $this->authorize('admin');
         $this->model['buku'] = new Buku();
+        $this->model['pengguna'] = new Pengguna();
     }
 
     /**
@@ -25,5 +27,10 @@ class AdminController extends Middleware {
     public function listbook(){ 
         $getBook = $this->model['buku']->ambilBuku();
         include 'views/ListBukuAdmin.php';
+    }
+
+    public function listuser(){ 
+        $getPengguna = $this->model['pengguna']->ambilUser();
+        include 'views/daftarlist.php';
     }
 }
