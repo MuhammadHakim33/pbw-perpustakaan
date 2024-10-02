@@ -45,7 +45,7 @@
                 <section id="manajemenBuku" class="mb-5">
                     <h3>Manajemen Buku</h3>
                     <div class="d-flex flex-wrap">
-                        <a class="btn btn-primary m-2"><i class="fas fa-plus"></i> Tambah Buku</a>
+                        <a href="/admin/listbook" class="btn btn-primary m-2"><i class="fas fa-plus"></i> Tambah Buku</a>
                         <button class="btn btn-danger m-2"><i class="fas fa-trash-alt"></i> Hapus Buku</button>
                         <button class="btn btn-secondary m-2"><i class="fas fa-search"></i> Cari Buku</button>
                     </div>
