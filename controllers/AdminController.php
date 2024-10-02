@@ -24,6 +24,15 @@ class AdminController extends Middleware {
 
     public function listbook(){ 
         $getBook = $this->model['buku']->ambilBuku();
+        // var_dump($getBook);
+        // die;
         include 'views/ListBukuAdmin.php';
+    }
+
+    public function tambahbook(){ 
+        $getBook = $this->model['buku']->ambilBuku();
+        // var_dump($getBook);
+        // die;
+        include 'views/adminbook.php';
     }
 }

@@ -45,17 +45,15 @@
                 <section id="manajemenBuku" class="mb-5">
                     <h3>Manajemen Buku</h3>
                     <div class="d-flex flex-wrap">
-                        <button class="btn btn-primary m-2"><i class="fas fa-plus"></i> Tambah Buku</button>
+                        <button class="btn btn-primary m-2" onclick="window.location.href='/admin/tambahbook'">
+                            <i class="fas fa-plus"></i> Tambah Buku
+                        </button>
                         
                         <!-- Redirect Button Hapus Buku ke ListBukuAdmin -->
                         <button class="btn btn-info m-2" onclick="window.location.href='/admin/listbook'">
-                        <i class="fa-solid fa-clipboard-list m-2"></i> List Buku
+                            <i class="fa-solid fa-clipboard-list m-2"></i> List Buku
                         </button>
                         
-                        <!-- Redirect Button Cari Buku ke ListBukuAdmin -->
-                        <button class="btn btn-secondary m-2" onclick="window.location.href='/views/ListBukuAdmin.php'">
-                            <i class="fas fa-search"></i> Cari Buku
-                        </button>
                     </div>
                 </section>
 

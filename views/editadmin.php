@@ -44,34 +44,35 @@
             <h2><i class="fas fa-book"></i> Tambah Buku</h2>
         </div>
         <form action="/book/store" method="POST">
+
             <div class="mb-3">
                 <label for="title" class="form-label">Judul Buku</label>
-                <input type="text" class="form-control" id="title" name="judul" placeholder="Masukkan judul buku" required>
+                <input type="text" class="form-control" id="title" name="judul" value="<?= $buku[0]['judul'] ?>" placeholder="Masukkan judul buku" required>
             </div>
 
             <div class="mb-3">
                 <label for="author" class="form-label">Penulis</label>
-                <input type="text" class="form-control" id="author" name="penulis" placeholder="Masukkan nama penulis" required>
+                <input type="text" class="form-control" id="author" name="penulis" value="<?= $buku[0]['penulis'] ?>" placeholder="Masukkan nama penulis" required>
             </div>
 
             <div class="mb-3">
                 <label for="publisher" class="form-label">Penerbit</label>
-                <input type="text" class="form-control" id="publisher" name="penerbit" placeholder="Masukkan nama penerbit" required>
+                <input type="text" class="form-control" id="publisher" name="penerbit" value="<?= $buku[0]['penerbit'] ?>" placeholder="Masukkan nama penerbit" required>
             </div>
 
             <div class="mb-3">
                 <label for="year" class="form-label">Tahun Terbit</label>
-                <input type="number" class="form-control" id="year" name="tahun_terbit" placeholder="Masukkan tahun terbit" required>
+                <input type="number" class="form-control" id="year" name="tahun_terbit" value="<?= $buku[0]['tahun_terbit'] ?>" placeholder="Masukkan tahun terbit" required>
             </div>
 
             <div class="mb-3">
                 <label for="genre" class="form-label">Kategori</label>
-                <input type="text" class="form-control" id="genre" name="kategori" placeholder="Masukkan genre buku" required>
+                <input type="text" class="form-control" id="genre" name="kategori" value="<?= $buku[0]['kategori'] ?>" placeholder="Masukkan genre buku" required>
             </div>
 
             <div class="mb-3">
                 <label for="copies" class="form-label">ISBN</label>
-                <input type="number" class="form-control" id="code" name="isbn" placeholder="Masukkan ISBN" required>
+                <input type="number" class="form-control" id="code" name="isbn" value="<?= $buku[0]['isbn'] ?>" placeholder="Masukkan ISBN" required>
             </div>
 
             <div class="d-flex justify-content-between">
