@@ -40,8 +40,8 @@
 
     <!-- Detail Buku -->
     <section id="detail-buku" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4" id="judulBuku">Judul Buku</h2>
+        <div class="container mt-3">
+            <h2 class="text-center mb-5" id="judulBuku">Judul Buku</h2>
             <div class="row">
                 <div class="col-md-6">
                     <img src="../assets/image/cnth.jpg" class="img-fluid" alt="Gambar Buku">
