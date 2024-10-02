@@ -73,8 +73,16 @@
                     <h3>Manajemen Buku</h3>
                     <div class="d-flex flex-wrap">
                         <button class="btn btn-primary m-2"><i class="fas fa-plus"></i> Tambah Buku</button>
-                        <button class="btn btn-danger m-2"><i class="fas fa-trash-alt"></i> Hapus Buku</button>
-                        <button class="btn btn-secondary m-2"><i class="fas fa-search"></i> Cari Buku</button>
+                        
+                        <!-- Redirect Button Hapus Buku ke ListBukuAdmin -->
+                        <button class="btn btn-danger m-2" onclick="window.location.href='/views/ListBukuAdmin.php'">
+                            <i class="fas fa-trash-alt"></i> Hapus Buku
+                        </button>
+                        
+                        <!-- Redirect Button Cari Buku ke ListBukuAdmin -->
+                        <button class="btn btn-secondary m-2" onclick="window.location.href='/views/ListBukuAdmin.php'">
+                            <i class="fas fa-search"></i> Cari Buku
+                        </button>
                     </div>
                 </section>
 

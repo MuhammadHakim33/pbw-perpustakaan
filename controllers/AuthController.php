@@ -7,7 +7,7 @@ class AuthController {
         'nik' => '12345',
         'email' => 'admin@gmail.com',
         'password' => '$2y$10$DTIiT86URHuL3G8DeSlpX.cjEnYVYz1XBpgtjYi3MB1Z45FvH0ZpW', // admin123
-        'role' => 'user'
+        'role' => 'admin'
     );
 
     // public $account_dummy = false;

@@ -49,30 +49,30 @@
             <tbody>
                 <!-- Buku 1 -->
                 <tr>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Fathan</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">CapCom</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">1968</td>
                     <td class="text-center justify-content-center pt-3">
                         <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
                     </td>
                 </tr>
                 <!-- Buku 2 -->
                 <tr>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Hilang</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Hakim</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">CapCom</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">1971</td>
                     <td class="text-center justify-content-center pt-3">
                         <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
                     </td>
                 </tr>
                 <!-- Buku 3 -->
                 <tr>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Kembali</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Valentino</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">CapCom</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">1999</td>
                     <td class="text-center justify-content-center pt-3">
                         <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
                     </td>
