@@ -17,8 +17,8 @@ class BookController extends Middleware {
         $this->authorize('user');
         
         $buku = $this->model['buku']->temukanBuku($id);
-        var_dump($buku);
-        die;
+        // var_dump($buku);
+        // die;
 
         include 'views/book.php';
     }

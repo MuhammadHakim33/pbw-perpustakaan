@@ -48,35 +48,17 @@
             </thead>
             <tbody>
                 <!-- Buku 1 -->
+                 <?php foreach($buku as $item): ?>
                 <tr>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;"> <?= $item["judul"]?> </td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"> <?= $item["penulis"]?> </td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"><?= $item["penerbit"]?></td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"><?= $item["tahun_terbit"]?></td>
                     <td class="text-center justify-content-center pt-3">
-                        <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
+                        <button onclick="window.location.href='/book/detail/<?= $item['id']?>';" class="btn btn-primary">Lihat Buku</button>
                     </td>
                 </tr>
-                <!-- Buku 2 -->
-                <tr>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-center justify-content-center pt-3">
-                        <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
-                    </td>
-                </tr>
-                <!-- Buku 3 -->
-                <tr>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
-                    <td class="text-center justify-content-center pt-3">
-                        <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
-                    </td>
-                </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
