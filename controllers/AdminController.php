@@ -38,8 +38,16 @@ class AdminController extends Middleware {
 
     public function listpeminjaman() {
         $palingBanyak = $this->model['peminjaman']->countPeminjaman();
-        // var_dump($palingBanyak);
-        // die;
         include 'views/listpeminjamanterbanyak.php';
+    }
+
+    public function listpengembalian() {
+        $terlambat = $this->model['peminjaman']->getAllPeminjamanTerlambat();
+        include 'views/listpengembalianterlambat.php';
+    }
+
+    public function listpeminjamansemua() {
+        $peminjaman = $this->model['peminjaman']->getAllPeminjaman();
+        include 'views/listpeminjamansemua.php';
     }
 }

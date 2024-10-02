@@ -64,31 +64,37 @@
             <!-- Content Area -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">List Buku Terbanyak Dipinjam</h1>
+                    <h1 class="h2">List Pengembalian Terlambat</h1>
                 </div>
 
                 <!-- List Buku Section -->
                 <section id="listBuku" class="mb-5">
                     <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h3>Daftar Buku</h3>
+                        <h3>Daftar Pengembalian</h3>
                         <!-- Search Bar -->
                         <input type="text" class="form-control w-25" id="searchBar" placeholder="Search...">
                     </div>
                     <table class="table table-striped" id="bookTable">
                         <thead>
                             <tr>
+                                <th>Nama Pengguna</th>
                                 <th>Judul Buku</th>
-                                <th>Jumlah</th>
+                                <th>Tanggal Peminjaman</th>
+                                <th>Tanggal Jatuh Tempo</th>
+                                <th>Tanggal Pengembalian</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Placeholder -->
                              <?php
-                                foreach ($palingBanyak as $itemBook): 
+                                foreach ($terlambat as $item): 
                              ?>
                             <tr>
-                                <td> <?= $itemBook['judul']; ?> </td>
-                                <td> <?= $itemBook['total_pinjaman']; ?> </td>
+                                <td> <?= $item['nama']; ?> </td>
+                                <td> <?= $item['judul']; ?> </td>
+                                <td> <?= $item['tanggal_peminjaman']; ?> </td>
+                                <td> <?= $item['tanggal_jatuh_tempo'];?> </td>
+                                <td> <?= $item['tanggal_dikembalikan'];?> </td>
                             </tr>
                             <?php
                                 endforeach;
