@@ -67,7 +67,9 @@ class BookController extends Middleware {
     public function delete($id) {
         $this->authorize('admin');
 
-        var_dump($id);
+        $this->model['buku']->hapusBuku($id);
+
+        header('Location: /admin/listbook');
     }
 
     // Method untuk meminjam buku

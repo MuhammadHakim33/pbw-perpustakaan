@@ -87,17 +87,23 @@
                         </thead>
                         <tbody>
                             <!-- Placeholder -->
+                             <?php
+                                foreach ($getBook as $itemBook): 
+                             ?>
                             <tr>
-                                <td>1</td>
-                                <td>Buku Contoh</td>
-                                <td>Penulis A</td>
-                                <td>Penerbit A</td>
-                                <td>2024</td>
+                                <td> <?= $itemBook['id']; ?> </td>
+                                <td> <?= $itemBook['judul']; ?> </td>
+                                <td> <?= $itemBook['penulis']; ?> </td>
+                                <td> <?= $itemBook['penerbit']; ?> </td>
+                                <td> <?= $itemBook['tahun_terbit']; ?> </td>
                                 <td>
-                                    <button class="btn btn-danger">Hapus</button>
-                                    <button class="btn btn-secondary">Edit</button>
+                                    <a class="btn btn-danger" href="/book/delete/<?=$itemBook['id'];?>">Hapus</a>
+                                    <a class="btn btn-secondary" href="/book/update/<?=$itemBook['id'];?>">Edit</a>
                                 </td>
                             </tr>
+                            <?php
+                                endforeach;
+                            ?>
                             <!-- Tambahkan data buku di sini -->
                         </tbody>
                     </table>

@@ -48,8 +48,8 @@
                         <button class="btn btn-primary m-2"><i class="fas fa-plus"></i> Tambah Buku</button>
                         
                         <!-- Redirect Button Hapus Buku ke ListBukuAdmin -->
-                        <button class="btn btn-danger m-2" onclick="window.location.href='/views/ListBukuAdmin.php'">
-                            <i class="fas fa-trash-alt"></i> Hapus Buku
+                        <button class="btn btn-info m-2" onclick="window.location.href='/admin/listbook'">
+                        <i class="fa-solid fa-clipboard-list m-2"></i> List Buku
                         </button>
                         
                         <!-- Redirect Button Cari Buku ke ListBukuAdmin -->
@@ -62,7 +62,7 @@
                 <!-- Manajemen User Section -->
                 <section id="manajemenUser" class="mb-5">
                     <h3>Manajemen User</h3>
-                    <button class="btn btn-info"><i class="fas fa-user-check"></i> Cek Informasi User</button>
+                    <button class="btn btn-info m-2"><i class="fas fa-user-check"></i> Cek Informasi User</button>
                 </section>
 
                 <!-- Pelaporan Section -->

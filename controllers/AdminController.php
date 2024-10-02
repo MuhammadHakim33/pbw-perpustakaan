@@ -1,25 +1,29 @@
 <?php
 
 require_once 'Middleware.php';
+require_once 'models/Buku.php';
 
 class AdminController extends Middleware {
+    private $model = array();
 
     public function __construct(){
         parent::__construct();
         $this->authorize('admin');
+        $this->model['buku'] = new Buku();
     }
 
     /**
-     * Method untuk menampilkan buku yang paling banyak dipinjam,
-     * untuk menampilkan buku yang terlambat dan
-     * untuk menampilkan total peminjaman
-     * */ 
+      * Method untuk menampilkan buku yang paling banyak dipinjam,
+      * untuk menampilkan buku yang terlambat dan
+      * untuk menampilkan total peminjaman
+    **/ 
+
     public function index() {
         include 'views/admin.php';
     }
 
     public function listbook(){ 
-
-        include 'views/adminbook.php';
+        $getBook = $this->model['buku']->ambilBuku();
+        include 'views/ListBukuAdmin.php';
     }
 }

@@ -45,5 +45,8 @@
 footer {
     background: #343a40;
     color: white;
-    padding: 15px;
+}
+
+footer > p {
+    margin-bottom: 0;
 }
