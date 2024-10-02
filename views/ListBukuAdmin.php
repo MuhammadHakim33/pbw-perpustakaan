@@ -69,8 +69,12 @@
 
                 <!-- List Buku Section -->
                 <section id="listBuku" class="mb-5">
-                    <h3>Daftar Buku</h3>
-                    <table class="table table-striped">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3>Daftar Buku</h3>
+                        <!-- Search Bar -->
+                        <input type="text" class="form-control w-25" id="searchBar" placeholder="Search...">
+                    </div>
+                    <table class="table table-striped" id="bookTable">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -108,5 +112,32 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script untuk Search Bar -->
+    <script>
+        // Ambil elemen search bar dan tabel
+        const searchBar = document.getElementById('searchBar');
+        const bookTable = document.getElementById('bookTable').getElementsByTagName('tbody')[0];
+
+        // Fungsi untuk mencari judul buku
+        searchBar.addEventListener('keyup', function() {
+            const filter = searchBar.value.toLowerCase();
+            const rows = bookTable.getElementsByTagName('tr');
+
+            // Loop melalui semua baris tabel dan sembunyikan yang tidak cocok
+            for (let i = 0; i < rows.length; i++) {
+                const titleCell = rows[i].getElementsByTagName('td')[1];
+                if (titleCell) {
+                    const titleText = titleCell.textContent || titleCell.innerText;
+                    if (titleText.toLowerCase().indexOf(filter) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>

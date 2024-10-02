@@ -18,8 +18,8 @@ class Middleware {
     // Method untuk mengecek apakah role diizinkan untuk mengakses halaman
     protected function authorize($role_allowed) {
         if ($_SESSION['role'] != $role_allowed) {
-            echo "AKSES DILARANG!";
-            die;
+            // echo "AKSES DILARANG!";
+            // die;
         }
     }
 }

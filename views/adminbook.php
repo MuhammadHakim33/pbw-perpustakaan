@@ -43,7 +43,7 @@
         <div class="form-header">
             <h2><i class="fas fa-book"></i> Tambah Buku</h2>
         </div>
-        <form action="process_add_book.php" method="POST">
+        <form action="/admin/store" method="POST">
             <div class="mb-3">
                 <label for="title" class="form-label">Judul Buku</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan judul buku" required>
@@ -70,13 +70,13 @@
             </div>
 
             <div class="mb-3">
-                <label for="copies" class="form-label">Jumlah Salinan</label>
-                <input type="number" class="form-control" id="copies" name="copies" placeholder="Masukkan jumlah salinan" required>
+                <label for="copies" class="form-label">ISBN</label>
+                <input type="number" class="form-control" id="code" name="code" placeholder="Masukkan ISBN" required>
             </div>
 
             <div class="d-flex justify-content-between">
                 <button type="submit" class="btn btn-custom">Tambah Buku</button>
-                <a href="dashboard.html" class="btn btn-secondary">Kembali</a>
+                <a href="/admin/index" class="btn btn-secondary">Kembali</a>
             </div>
         </form>
     </div>
