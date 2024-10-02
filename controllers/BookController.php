@@ -17,8 +17,6 @@ class BookController extends Middleware {
         $this->authorize('user');
         
         $buku = $this->model['buku']->temukanBuku($id);
-        var_dump($buku);
-        die;
 
         include 'views/book.php';
     }
@@ -86,15 +84,9 @@ class BookController extends Middleware {
         $tgl_pinjam = htmlspecialchars($_POST['tgl_pinjam']);
         $tgl_kembali = htmlspecialchars($_POST['tgl_kembali']);
 
-        $data = array(
-            'id_buku' => $id_buku,
-            'id_pengguna' => $id_pengguna,
-            'tgl_pinjam' => $tgl_pinjam,
-            'tgl_kembali' => $tgl_kembali,
-        );
+        $this->model['peminjaman']->tambahPeminjaman($id_pengguna, $id_buku, $tgl_pinjam, $tgl_kembali);
 
-        var_dump($data);
-        // header('Location: /');
+        header('Location:/home');
     }
 
     // Method mengembalikan buku
@@ -103,7 +95,7 @@ class BookController extends Middleware {
 
         $this->model['peminjaman']->pengembalianBuku($id);
 
-        echo $id;
+        header('Location:/book/history');
     }
 
     // Method mengecek status buku
@@ -123,8 +115,6 @@ class BookController extends Middleware {
 
         $id = $_SESSION['id'];
         $peminjaman = $this->model['peminjaman']->getAllPeminjamanUser($id);
-        var_dump($peminjaman);
-        die;
 
         include 'views/riwayat.php';
     }

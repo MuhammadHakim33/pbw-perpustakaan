@@ -5,7 +5,7 @@ class Koneksi {
     protected $conn;
     private $servername = "localhost";
     private $username = "root";
-    private $password = "root"; 
+    private $password = ""; 
     private $dbname = "db_perpusteknik";
 
     // Constructor untuk inisialisasi koneksi database
