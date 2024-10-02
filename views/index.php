@@ -32,47 +32,55 @@
         </div>
     </nav>
 
-    <!-- Dashboard Buku -->
-    <section id="koleksi" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Daftar Koleksi Buku</h2>
-            <div class="row">
+<!-- Dashboard Buku -->
+<section id="koleksi" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Daftar Koleksi Buku</h2>
+        <table class="table table-striped table-hover" style="border: 1px solid black; border-spacing: 0;">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-start" style="width: 28%; border-right: 2px solid #000; padding-right: 6px;">Judul Buku</th>
+                    <th scope="col" class="text-start" style="width: 20%; border-right: 2px solid #000; padding-right: 15px;">Penulis</th>
+                    <th scope="col" class="text-start" style="width: 20%; border-right: 2px solid #000; padding-right: 15px;">Penerbit</th>
+                    <th scope="col" class="text-start" style="width: 10%; border-right: 2px solid #000; padding-right: 15px;">Tahun terbit</th>
+                    <th scope="col" class="text-start" style="width: 10%; padding-left: 10px;">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
                 <!-- Buku 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="../assets/image/pergi.jpeg" class="card-img-top" alt="Buku 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Pergi</h5>
-                            <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
-                        </div>
-                    </div>
-                </div>
-
+                <tr>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-center justify-content-center pt-3">
+                        <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
+                    </td>
+                </tr>
                 <!-- Buku 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="../assets/image/pulang.jpg" class="card-img-top" alt="Buku 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Pulang</h5>
-                            <button onclick="window.location.href='/book/detail/222';" class="btn btn-primary">Lihat Buku</button>
-                        </div>
-                    </div>
-                </div>
-
+                <tr>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-center justify-content-center pt-3">
+                        <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
+                    </td>
+                </tr>
                 <!-- Buku 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="../assets/image/rindu.jpg" class="card-img-top" alt="Buku 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Rindu</h5>
-                            <button onclick="window.location.href='/book/detail/333';" class="btn btn-primary">Lihat Buku</button>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+                <tr>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 6px;">Gerakan 30SPKI demi kemajuan Indonesia</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;"></td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-start" style="border-right: 2px solid #000; padding-right: 15px;">Pergi</td>
+                    <td class="text-center justify-content-center pt-3">
+                        <button onclick="window.location.href='/book/detail/111';" class="btn btn-primary">Lihat Buku</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
     <footer class="bg-dark text-white mt-5">
         <div class="container py-4">
