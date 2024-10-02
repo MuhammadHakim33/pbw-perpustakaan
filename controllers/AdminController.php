@@ -40,4 +40,21 @@ class AdminController extends Middleware {
         include 'views/adminbook.php';
 
     }
+    public function listuser(){ 
+        $getPengguna = $this->model['pengguna']->ambilUser();
+        include 'views/daftarlist.php';
+    }
+    public function listpeminjaman() {
+        $palingBanyak = $this->model['peminjaman']->countPeminjaman();
+        include 'views/listpeminjamanterbanyak.php';
+    }
+    public function listpengembalian() {
+        $terlambat = $this->model['peminjaman']->getAllPeminjamanTerlambat();
+        include 'views/listpengembalianterlambat.php';
+    }
+
+    public function listpeminjamansemua() {
+        $peminjaman = $this->model['peminjaman']->getAllPeminjaman();
+        include 'views/listpeminjamansemua.php';
+    }
 }

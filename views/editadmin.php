@@ -76,7 +76,7 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-custom">Tambah Buku</button>
+                <button type="submit" class="btn btn-custom">Edit Buku</button>
                 <a href="/admin/index" class="btn btn-secondary">Kembali</a>
             </div>
         </form>
