@@ -3,6 +3,7 @@
 require_once 'Middleware.php';
 require_once 'models/Buku.php';
 require_once 'models/Pengguna.php';
+require_once 'models/peminjaman.php';
 
 class AdminController extends Middleware {
     private $model = array();
@@ -12,6 +13,7 @@ class AdminController extends Middleware {
         $this->authorize('admin');
         $this->model['buku'] = new Buku();
         $this->model['pengguna'] = new Pengguna();
+        $this->model['peminjaman'] = new Peminjaman();
     }
 
     /**
@@ -32,5 +34,12 @@ class AdminController extends Middleware {
     public function listuser(){ 
         $getPengguna = $this->model['pengguna']->ambilUser();
         include 'views/daftarlist.php';
+    }
+
+    public function listpeminjaman() {
+        $palingBanyak = $this->model['peminjaman']->countPeminjaman();
+        // var_dump($palingBanyak);
+        // die;
+        include 'views/listpeminjamanterbanyak.php';
     }
 }
