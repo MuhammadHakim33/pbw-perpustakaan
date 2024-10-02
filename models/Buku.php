@@ -13,82 +13,86 @@ class Buku extends Koneksi {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
+    public function temukanBuku($id) {
+        $sql = "SELECT * FROM buku where id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Tambah buku
-    function tambahBuku($conn, $id_buku, $judul, $penulis, $penerbit, $tahun_terbit, $isbn) {
-        $sql = "INSERT INTO buku (id, judul, penulis, penerbit, tahun_terbit, isbn) 
-                VALUES (:id_buku, :judul, :penulis, :penerbit, :tahun_terbit, :isbn)";
+    function tambahBuku($judul, $penulis, $penerbit, $tahun_terbit, $isbn, $kategori) {
+        $sql = "INSERT INTO buku (judul, penulis, penerbit, tahun_terbit, isbn, kategori) 
+                VALUES (:judul, :penulis, :penerbit, :tahun_terbit, :isbn, :kategori)";
         
         try {
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':id_buku', $id_buku);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':judul', $judul);
             $stmt->bindParam(':penulis', $penulis);
             $stmt->bindParam(':penerbit', $penerbit);
             $stmt->bindParam(':tahun_terbit', $tahun_terbit);
             $stmt->bindParam(':isbn', $isbn);
+            $stmt->bindParam(':kategori', $kategori);
             $stmt->execute();
-            echo "Buku berhasil ditambahkan.";
-        } catch (PDOException $e) {
+            return true;
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
 
     // Edit buku
-    function editBuku($conn, $id_buku, $judul, $penulis, $penerbit, $tahun_terbit, $isbn) {
-        $sql = "UPDATE buku SET judul=:judul, penulis=:penulis, penerbit=:penerbit, tahun_terbit=:tahun_terbit, isbn=:isbn 
-                WHERE id=:id_buku";
+    function editBuku($id, $judul, $penulis, $penerbit, $tahun_terbit, $isbn, $kategori) {
+        $sql = "UPDATE buku SET judul=:judul, penulis=:penulis, penerbit=:penerbit, tahun_terbit=:tahun_terbit, isbn=:isbn, kategori=:kategori 
+                WHERE id=:id";
         
         try {
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':id_buku', $id_buku);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
             $stmt->bindParam(':judul', $judul);
             $stmt->bindParam(':penulis', $penulis);
             $stmt->bindParam(':penerbit', $penerbit);
             $stmt->bindParam(':tahun_terbit', $tahun_terbit);
             $stmt->bindParam(':isbn', $isbn);
+            $stmt->bindParam(':kategori', $kategori);
             $stmt->execute();
-            echo "Buku berhasil diperbarui.";
-        } catch (PDOException $e) {
+            return true;
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
 
     // Mencari buku
-    function cariBuku($conn, $keyword) {
+    function cariBuku($keyword) {
         $sql = "SELECT * FROM buku WHERE judul LIKE :keyword OR penulis LIKE :keyword";
         $keyword = "%$keyword%"; // Menambahkan wildcard untuk pencarian
 
         try {
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':keyword', $keyword);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            if ($result) {
-                foreach ($result as $row) {
-                    echo "ID: " . $row["id"] . " - Judul: " . $row["judul"] . " - Penulis: " . $row["penulis"] . "<br>";
-                }
-            } else {
-                echo "Buku tidak berhasil ditemukan.";
-            }
-        } catch (PDOException $e) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
 
     // Hapus buku
-    function hapusBuku($conn, $id_buku) {
-        $sql = "DELETE FROM buku WHERE id=:id_buku";
+    function hapusBuku($id) {
+        $sql = "DELETE FROM buku WHERE id=:id";
         
         try {
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':id_buku', $id_buku);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
-            echo "Buku berhasil dihapus.";
-        } catch (PDOException $e) {
+            return true;
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }

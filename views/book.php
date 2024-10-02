@@ -47,7 +47,7 @@
                     <img src="../assets/image/cnth.jpg" class="img-fluid" alt="Gambar Buku">
                 </div>
                 <div class="col-md-6">
-                    <h4>ISBN: <?= $isbn; ?></h4>
+                    <h4>ISBN: <?= $id; ?></h4>
                     <h4>Penulis: </h4>
                     <h4>Tahun Terbit: </span></h4>
                     <hr>

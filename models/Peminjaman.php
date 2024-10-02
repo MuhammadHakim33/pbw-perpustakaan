@@ -1,5 +1,5 @@
 <?php
-class Buku extends Koneksi {
+class Peminjaman extends Koneksi {
     
     public function __construct() {
         parent::__construct();
@@ -16,8 +16,9 @@ class Buku extends Koneksi {
             $stmt->bindParam(':tanggal_peminjaman', $tanggal_peminjaman);
             $stmt->bindParam(':tanggal_jatuh_tempo', $tanggal_jatuh_tempo);
             $stmt->execute();
-            echo "Peminjaman berhasil ditambahkan.";
-        } catch (PDOException $e) {
+            return true;
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
@@ -27,21 +28,31 @@ class Buku extends Koneksi {
         try {
             $sql = "SELECT peminjaman.*, pengguna.nama, buku.judul 
                     FROM peminjaman 
-                    JOIN pengguna ON peminjaman.id_pengguna = pengguna.id_pengguna 
-                    JOIN buku ON peminjaman.id_buku = buku.id_buku";
+                    JOIN pengguna ON peminjaman.id_pengguna = pengguna.id 
+                    JOIN buku ON peminjaman.id_buku = buku.id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
-            if (count($result) > 0) {
-                foreach ($result as $row) {
-                    echo "ID Peminjaman: " . $row["id_peminjaman"] . " - Nama Pengguna: " . $row["nama"] . 
-                         " - Judul Buku: " . $row["judul"] . " - Status: " . $row["status"] . "<br>";
-                }
-            } else {
-                echo "Tidak ada data peminjaman.";
-            }
-        } catch (PDOException $e) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } 
+        catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    // getAll peminjaman spesifik user
+    public function getAllPeminjamanUser($id) {
+        try {
+            $sql = "SELECT peminjaman.*, pengguna.nama, buku.judul 
+                    FROM peminjaman 
+                    JOIN pengguna ON peminjaman.id_pengguna = pengguna.id 
+                    JOIN buku ON peminjaman.id_buku = buku.id
+                    WHERE id_pengguna = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
@@ -51,38 +62,66 @@ class Buku extends Koneksi {
         try {
             $sql = "SELECT peminjaman.*, pengguna.nama, buku.judul 
                     FROM peminjaman 
-                    JOIN pengguna ON peminjaman.id_pengguna = pengguna.id_pengguna 
-                    JOIN buku ON peminjaman.id_buku = buku.id_buku 
-                    WHERE peminjaman.status = 'terlambat'";
+                    JOIN pengguna ON peminjaman.id_pengguna = pengguna.id 
+                    JOIN buku ON peminjaman.id_buku = buku.id 
+                    WHERE peminjaman.tanggal_jatuh_tempo != peminjaman.tanggal_dikembalikan";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
-            if (count($result) > 0) {
-                foreach ($result as $row) {
-                    echo "ID Peminjaman: " . $row["id_peminjaman"] . " - Nama Pengguna: " . $row["nama"] . 
-                         " - Judul Buku: " . $row["judul"] . " - Status: " . $row["status"] . 
-                         " - Tanggal Jatuh Tempo: " . $row["tanggal_jatuh_tempo"] . "<br>";
-                }
-            } else {
-                echo "Tidak ada pengembalian peminjaman yang terlambat.";
-            }
-        } catch (PDOException $e) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
 
-    // getAll pengembalian buku
-    public function pengembalianBuku($id_peminjaman) {
+    // get spesifik peminjaman
+    public function getPeminjamanUser($id) {
+        try {
+            $sql = "SELECT peminjaman.*, pengguna.nama, buku.judul 
+                    FROM peminjaman 
+                    JOIN pengguna ON peminjaman.id_pengguna = pengguna.id 
+                    JOIN buku ON peminjaman.id_buku = buku.id 
+                    WHERE peminjaman.id=:id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } 
+        catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    // pengembalian buku
+    public function pengembalianBuku($id) {
         try {
             $sql = "UPDATE peminjaman 
-                    SET status = 'dikembalikan' 
-                    WHERE id_peminjaman = :id_peminjaman";
+                    SET status='dikembalikan', tanggal_dikembalikan=:tanggal_dikembalikan
+                    WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':id_peminjaman', $id_peminjaman);
+            $current_date = date('Y-m-d');
+            $stmt->bindParam(':tanggal_dikembalikan', $current_date);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
-            echo "Buku berhasil dikembalikan.";
-        } catch (PDOException $e) {
+            return true;
+        } 
+        catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    // get jumlah peminjaman dari setiap buku
+    public function countPeminjaman() {
+        try {
+            $sql = "SELECT buku.id, buku.judul, COUNT(peminjaman.id_buku) AS total_pinjaman
+                    FROM peminjaman
+                    JOIN buku ON peminjaman.id_buku = buku.id
+                    GROUP BY peminjaman.id_buku;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } 
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
     }
