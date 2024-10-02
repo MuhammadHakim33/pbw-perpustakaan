@@ -36,7 +36,7 @@
     <!-- Riwayat Peminjaman Buku -->
     <section id="riwayat-peminjaman" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Riwayat Peminjaman Buku <?= $nik; ?></h2>
+            <h2 class="text-center mb-4">Riwayat Peminjaman Buku</h2>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="table-dark">
@@ -44,41 +44,23 @@
                             <th class="text-center">No</th>
                             <th class="text-center">Judul Buku</th>
                             <th class="text-center">Tanggal Pinjam</th>
-                            <th class="text-center">Tanggal Kembali</th>
+                            <th class="text-center">Tanggal Jatuh Tempo</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach($peminjaman as $item): ?>
                         <tr>
-                            <td>1</td>
-                            <td>Pulang</td>
-                            <td>12 September 2024</td>
-                            <td>19 September 2024</td>
-                            <td><span class="badge bg-success">Sudah Dikembalikan</span></td>
-                            <td>-</td>
+                            <td><?= $i++;?></td>
+                            <td><?= $item["judul"]?></td>
+                            <td><?= $item["tanggal_peminjaman"]?></td>
+                            <td><?= $item["tanggal_jatuh_tempo"]?></td>
+                            <td><span class="badge bg-success"><?= $item["status"]?></span></td>
+                            <td><a href="/book/return/<?= $item['id']?>" class="btn btn-danger">Kembalikan Buku</a></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Pergi</td>
-                            <td>15 September 2024</td>
-                            <td>--</td>
-                            <td><span class="badge bg-warning">Belum Dikembalikan</span></td>
-                            <td>
-                                <form action="/book/history" method="POST">
-                                    <input type="hidden" name="book_id" value="2">
-                                    <button type="submit" class="btn btn-danger">Kembalikan Buku</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Rindu</td>
-                            <td>10 September 2024</td>
-                            <td>17 September 2024</td>
-                            <td><span class="badge bg-success">Sudah Dikembalikan</span></td>
-                            <td>-</td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
