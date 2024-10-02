@@ -51,7 +51,7 @@
                         
                         <!-- Redirect Button Hapus Buku ke ListBukuAdmin -->
                         <button class="btn btn-info m-2" onclick="window.location.href='/admin/listbook'">
-                            <i class="fa-solid fa-clipboard-list m-2"></i> List Buku
+                            <i class="fa-solid fa-clipboard-list m-2"></i> Manajemen Buku
                         </button>
                         
                     </div>
