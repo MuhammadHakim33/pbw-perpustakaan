@@ -33,7 +33,7 @@
                         <a class="nav-link active" href="#">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log Out</a>
+                        <a class="nav-link" href="auth/logout">Log Out</a>
                     </li>
                 </ul>
             </div>
