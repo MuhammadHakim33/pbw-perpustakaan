@@ -43,21 +43,21 @@
         <div class="container mt-3">
             <h2 class="text-center mb-5" id="judulBuku">Judul Buku</h2>
             <div class="row">
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <img src="../assets/image/cnth.jpg" class="img-fluid" alt="Gambar Buku">
-                </div>
+                </div> -->
                 <div class="col-md-6">
-                    <h4>ISBN: <?= $id; ?></h4>
-                    <h4>Penulis: </h4>
-                    <h4>Tahun Terbit: </span></h4>
+                    <h4>ISBN: <?= $buku[0]["isbn"]; ?></h4>
+                    <h4>Penulis: <?= $buku[0]["penulis"]?> </h4>
+                    <h4>Tahun Terbit: <?= $buku[0]["tahun_terbit"]?></span></h4>
                     <hr>
                     <h5>Form Peminjaman Buku</h5>
                     <form action="/book/borrow" method="post">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="namaPeminjam" name="id_pengguna" hidden value="1" required>
+                            <input type="text" class="form-control" id="namaPeminjam" name="id_pengguna" hidden value="<?= $_SESSION["id"]?>" required>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="id" name="id_buku" hidden value="1" required>
+                            <input type="text" class="form-control" id="id" name="id_buku" hidden value="<?= $buku[0]["id"]?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="tanggalPinjam" class="form-label">Tanggal Pinjam</label>

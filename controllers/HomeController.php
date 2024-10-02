@@ -14,8 +14,8 @@ class HomeController extends Middleware {
 
     public function index() {
         $buku = $this->model->ambilBuku();
-        var_dump($buku);
-        die;
+        // var_dump($buku);
+        // die;
         
         include 'views/index.php';
     }
