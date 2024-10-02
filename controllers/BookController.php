@@ -26,7 +26,7 @@ class BookController extends Middleware {
         $this->authorize('admin');
 
         // Mengecek apakah field terisi
-        if (!$this->isFilled(['judul', 'penulis'])) {
+        if (!$this->isFilled(['isbn', 'penulis', 'penerbit', 'tahun_terbit', 'kategori','judul'])) {
             echo "ISI SEMUA FIELD!";
             die;
         }
@@ -34,13 +34,26 @@ class BookController extends Middleware {
         // Menangkap semua input lalu sanitasi
         $judul = htmlspecialchars($_POST['judul']);
         $penulis = htmlspecialchars($_POST['penulis']);
+        $penerbit = htmlspecialchars($_POST['penerbit']);
+        $tahun_terbit = htmlspecialchars($_POST['tahun_terbit']);
+        $kategori = htmlspecialchars($_POST['kategori']);
+        $isbn = htmlspecialchars($_POST['isbn']);
 
-        $data = array(
-            'judul' => $judul,
-            'penulis' => $penulis,
-        );
+        $this->model['buku']->tambahBuku($judul, $penulis, $penerbit, $tahun_terbit, $isbn, $kategori);
 
-        var_dump($data);
+        header('Location:/admin');
+
+        
+        // var_dump($data);
+    }
+
+    public function edit($id){
+        $this->authorize('admin');
+
+        $buku = $this->model['buku']->temukanBuku($id); 
+
+        include 'views/editadmin.php';
+
     }
 
     // Method untuk mengubah buku

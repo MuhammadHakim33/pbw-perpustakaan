@@ -98,7 +98,7 @@
                                 <td> <?= $itemBook['tahun_terbit']; ?> </td>
                                 <td>
                                     <a class="btn btn-danger" href="/book/delete/<?=$itemBook['id'];?>">Hapus</a>
-                                    <a class="btn btn-secondary" href="/book/update/<?=$itemBook['id'];?>">Edit</a>
+                                    <a class="btn btn-secondary" href="/book/edit/<?=$itemBook['id'];?>">Edit</a>
                                 </td>
                             </tr>
                             <?php
