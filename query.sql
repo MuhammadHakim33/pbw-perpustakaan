@@ -25,6 +25,7 @@ CREATE TABLE `peminjaman` (
   `id_buku` int(11) NOT NULL,
   `tanggal_peminjaman` date NOT NULL,
   `tanggal_jatuh_tempo` date NOT NULL,
+  `tanggal_dikembalikan` date IS NULL,
   `status` enum('dipinjam','dikembalikan','terlambat') DEFAULT 'dipinjam',
   PRIMARY KEY (`id`),  -- Primary key untuk tabel peminjaman
   CONSTRAINT `fk_pengguna` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna`(`id`) ON DELETE CASCADE,  -- Relasi ke tabel pengguna
